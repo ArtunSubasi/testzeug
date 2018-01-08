@@ -1,5 +1,8 @@
 # Testzeug
 
+[![Build Status](https://travis-ci.org/ArtunSubasi/testzeug.svg?branch=master)](https://travis-ci.org/ArtunSubasi/testzeug)
+[![Latest release](https://img.shields.io/github/release/ArtunSubasi/testzeug.svg)](https://github.com/ArtunSubasi/testzeug/releases/latest)
+
 ## Table of Contents
 [The Testzeug Project](#the-testzeug-project)  
 [The Testzeug Language](#the-testzeug-language)  
