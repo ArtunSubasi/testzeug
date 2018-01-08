@@ -1,19 +1,17 @@
-# Testzeug
-
-## Table of Contents
+# Table of Contents
 [The Testzeug Project](#the-testzeug-project)
 [The Testzeug Language](#the-testzeug-language)
 [Referencing Testzeug beans](#referencing-testzeug-beans)
 [Placeholders](#placeholders)
 [Templates](#templates)
 
-## The Testzeug Project
-The Testzeug Project is an ongoing work which aims to make test data easier to write, read and maintain. It will consist of:
+# The Testzeug Project
+The Testzeug Project aims to make test data easier to write, read and maintain. If the author finds the time and motivation, it will consist of:
 * The Testzeug Language: a domain specific language (DSL) which aims to allow the definition of cross-platform test data in YAML (Testzeug data).
-* The Testzeug Libraries: Libraries for different programming languages to use Testzeug data. The first one will be for Java.
+* The Testzeug Libraries: Libraries for different programming languages to use Testzeug data. The first one could be for Java. Who knows?
 * The Testzeug Server: a web-application to serve Testzeug data to clients (automated test runners).
 
-## The Testzeug Language
+# The Testzeug Language
 The Testzeug Language is a DSL based on YAML. It can be used to define a Testzeug context which contains a collection of Testzeug beans. Each Testzeug bean consists of the following attributes:
 
 * id (mandatory): A unique id to allow referencing by other Testzeug beans, test managers or automated test cases
@@ -22,7 +20,7 @@ The Testzeug Language is a DSL based on YAML. It can be used to define a Testzeu
 * tags (optional): Tags (aka labels) for searching, grouping or filtering purposes
 * data (optional): The actual test data
 
-### Example of a Testzeug context containing two Testzeug beans
+## Example of a Testzeug context containing two Testzeug beans
 ```yaml
 - id: Martin
   data:
@@ -38,10 +36,10 @@ The Testzeug Language is a DSL based on YAML. It can be used to define a Testzeu
     age: 17
 ```
 
-## Referencing Testzeug beans
+# Referencing Testzeug beans
 Testzeug beans can be referenced by the keyword $ref in order to define tree or graph structures.
 
-### Examples of Testzeug beans with references
+## Examples of Testzeug beans with references
 
 ```yaml
 - id: Homer
@@ -62,10 +60,10 @@ Testzeug beans can be referenced by the keyword $ref in order to define tree or 
     father: $ref Homer
 ```
 
-## Placeholders
+# Placeholders
 Data within the Testzeug beans can contain placeholders in order to represent values which are not known during the definition of the test data (e.g. current date or random texts). The list of the placeholders will be developed over time upon requests.
 
-### Examples for the usage of placeholders
+## Examples for the usage of placeholders
 
 ```yaml
 - id: Fresh Account First Example
@@ -90,10 +88,10 @@ Data within the Testzeug beans can contain placeholders in order to represent va
     password: $randomText 129
 ```
 
-## Templates
+# Templates
 Testzeug beans can be used as templates which can be concretized by other Testzeug beans in order to reduce redundancy. In other words, Testzeug beans can inherit their data from other Testzeug beans.
 
-### Examples for the usage of Templates
+## Examples for the usage of Templates
 
 ```yaml
 - id: Simpson
