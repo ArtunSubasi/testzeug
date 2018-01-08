@@ -7,7 +7,7 @@ class ClassWithLogger {
     
     private static final Logger LOGGER = LogManager.getLogger(ClassWithLogger.class);
     
-    static void logSomething() {
+    void logSomething() {
         LOGGER.info("The world was on fire and noone could save me but Testzeug!");
     }
     

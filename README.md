@@ -1,6 +1,7 @@
 # Testzeug
 
 [![Build Status](https://travis-ci.org/ArtunSubasi/testzeug.svg?branch=master)](https://travis-ci.org/ArtunSubasi/testzeug)
+[![Coverage Status](https://coveralls.io/repos/github/ArtunSubasi/testzeug/badge.svg?branch=master)](https://coveralls.io/github/ArtunSubasi/testzeug?branch=master)
 [![Latest release](https://img.shields.io/github/release/ArtunSubasi/testzeug.svg)](https://github.com/ArtunSubasi/testzeug/releases/latest)
 
 ## Table of Contents

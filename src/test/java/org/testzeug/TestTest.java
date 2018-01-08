@@ -6,7 +6,7 @@ public class TestTest {
         
     @Test
     public void doSomething() {
-        ClassWithLogger.logSomething();
+        new ClassWithLogger().logSomething();
     }
     
 }
