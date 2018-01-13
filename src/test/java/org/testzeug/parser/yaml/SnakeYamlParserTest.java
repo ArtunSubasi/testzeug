@@ -1,7 +1,7 @@
 package org.testzeug.parser.yaml;
 
 import org.testng.annotations.Test;
-import org.testzeug.factory.TestzeugBeanAttributes;
+import org.testzeug.core.TestzeugBeanAttributes;
 import org.testzeug.test.TestUtil;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.testzeug.factory;
+package org.testzeug.core;
 
 /**
  * Constants for the attributes of Testzeug beans.
