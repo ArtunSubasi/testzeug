@@ -1,6 +1,5 @@
 package org.testzeug.core;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,8 +33,7 @@ class TestzeugContextFactory {
         context.addBean(new TestzeugBean(id.toString()));
     }
 
-    private List<TestzeugBean> addBeansFromRootList(List yamlRoot) {
-        List<TestzeugBean> beans = new ArrayList<>();
+    private void addBeansFromRootList(List yamlRoot) {
         if (yamlRoot.isEmpty()) {
             throw new TestzeugContextCreationException("The root list is empty.");
         }
@@ -47,7 +45,6 @@ class TestzeugContextFactory {
                         + yamlElement.getClass() + ". Was expected a Testzeug bean with an id.");
             }
         }
-        return beans;
     }
 
 }
