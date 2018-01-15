@@ -8,6 +8,7 @@ package org.testzeug.core;
 public final class TestzeugBeanAttributes {
     
     public static final String ID = "id";
+    public static final String TYPE = "type";
     
     private TestzeugBeanAttributes() {
     }

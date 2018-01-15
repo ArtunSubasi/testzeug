@@ -16,7 +16,7 @@ class TestzeugContextFactory {
     public TestzeugContext create(Object yamlRoot) {
         context = new TestzeugContext();
         if (yamlRoot instanceof Map) {
-            addBeanFromRootMap((Map) yamlRoot);
+            context.addBean(createBeanFromMap((Map) yamlRoot));
         } else if (yamlRoot instanceof List) {
             addBeansFromRootList((List) yamlRoot);
         } else {
@@ -25,12 +25,21 @@ class TestzeugContextFactory {
         return context;
     }
 
-    private void addBeanFromRootMap(Map yamlMap) {
+    private static TestzeugBean createBeanFromMap(Map yamlMap) {
         Object id = yamlMap.get(TestzeugBeanAttributes.ID);
         if (id == null) {
             throw new TestzeugContextCreationException("A Testzeug bean does not contain an id: " + yamlMap);
         }
-        context.addBean(new TestzeugBean(id.toString()));
+        String idString = id.toString();
+        
+        TestzeugBean testzeugBean = new TestzeugBean(idString);
+        
+        Object type = yamlMap.get(TestzeugBeanAttributes.TYPE);
+        if (type != null) {
+            testzeugBean.setType(type.toString());
+        }
+        
+        return testzeugBean;
     }
 
     private void addBeansFromRootList(List yamlRoot) {
@@ -39,7 +48,7 @@ class TestzeugContextFactory {
         }
         for (Object yamlElement : yamlRoot) {
             if (yamlElement instanceof Map) {
-                addBeanFromRootMap((Map) yamlElement);
+                context.addBean(createBeanFromMap((Map) yamlElement));
             } else {
                 throw new TestzeugContextCreationException("The root list contains an unexpected type"
                         + yamlElement.getClass() + ". Was expected a Testzeug bean with an id.");

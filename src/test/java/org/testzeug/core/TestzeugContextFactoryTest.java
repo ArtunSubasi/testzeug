@@ -1,6 +1,7 @@
 package org.testzeug.core;
 
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.*;
 
@@ -23,16 +24,23 @@ public class TestzeugContextFactoryTest {
     }
     
     @Test
-    public void createContextWithOneBeanWIthId() {
+    public void createContextWithOneBeanWithAllAttributes() {
         Map<String, Object> yamlRoot = new HashMap<>();
-        String testBeanId = "Martin";
-        yamlRoot.put("id", testBeanId);
+        String beanId = "Martin";
+        String beanType = "SomeType";
+        yamlRoot.put(TestzeugBeanAttributes.ID, beanId);
+        yamlRoot.put(TestzeugBeanAttributes.TYPE, beanType);
 
         TestzeugContext context = factory.create(yamlRoot);
         assertNotNull(context);
         
-        TestzeugBean testzeugBean = context.getBean(testBeanId);
+        TestzeugBean testzeugBean = context.getBean(beanId);
         assertNotNull(testzeugBean);
+
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(testzeugBean.getId(), beanId);
+        softAssert.assertEquals(testzeugBean.getType(), beanType);
+        softAssert.assertAll();
     }
 
     @Test(expectedExceptions = TestzeugContextCreationException.class)

@@ -8,6 +8,7 @@ package org.testzeug.core;
 public class TestzeugBean {
     
     private final String id;
+    private String type;
 
     TestzeugBean(String id) {
         this.id = id;
@@ -15,6 +16,14 @@ public class TestzeugBean {
 
     public String getId() {
         return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    void setType(String type) {
+        this.type = type;
     }
     
 }
