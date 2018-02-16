@@ -30,6 +30,9 @@ public class TestzeugContextFactoryTest {
         String beanType = "SomeType";
         yamlRoot.put(TestzeugBeanAttributes.ID, beanId);
         yamlRoot.put(TestzeugBeanAttributes.TYPE, beanType);
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("name", "Martin");
+        yamlRoot.put(TestzeugBeanAttributes.DATA, dataMap);
 
         TestzeugContext context = factory.create(yamlRoot);
         assertNotNull(context);
@@ -40,6 +43,7 @@ public class TestzeugContextFactoryTest {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(testzeugBean.getId(), beanId);
         softAssert.assertEquals(testzeugBean.getType(), beanType);
+        softAssert.assertEquals(testzeugBean.getData(), dataMap);
         softAssert.assertAll();
     }
 
@@ -74,6 +78,7 @@ public class TestzeugContextFactoryTest {
 
         TestzeugBean testzeugBean = context.getBean(testBeanId);
         assertNotNull(testzeugBean);
+        
     }
     
 }

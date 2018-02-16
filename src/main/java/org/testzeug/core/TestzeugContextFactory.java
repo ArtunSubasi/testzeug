@@ -26,20 +26,32 @@ class TestzeugContextFactory {
     }
 
     private static TestzeugBean createBeanFromMap(Map yamlMap) {
+        TestzeugBean testzeugBean = initBean(yamlMap);
+        fillType(yamlMap, testzeugBean);
+        fillData(yamlMap, testzeugBean);
+        return testzeugBean;
+    }
+
+    private static TestzeugBean initBean(Map yamlMap) {
         Object id = yamlMap.get(TestzeugBeanAttributes.ID);
         if (id == null) {
             throw new TestzeugContextCreationException("A Testzeug bean does not contain an id: " + yamlMap);
         }
-        String idString = id.toString();
-        
-        TestzeugBean testzeugBean = new TestzeugBean(idString);
-        
+        return new TestzeugBean(id.toString());
+    }
+
+    private static void fillType(Map yamlMap, TestzeugBean testzeugBean) {
         Object type = yamlMap.get(TestzeugBeanAttributes.TYPE);
         if (type != null) {
             testzeugBean.setType(type.toString());
         }
-        
-        return testzeugBean;
+    }
+
+    private static void fillData(Map yamlMap, TestzeugBean testzeugBean) {
+        Object data = yamlMap.get(TestzeugBeanAttributes.DATA);
+        if (data instanceof Map) {
+            testzeugBean.setData(data);
+        }
     }
 
     private void addBeansFromRootList(List yamlRoot) {

@@ -9,6 +9,7 @@ public final class TestzeugBeanAttributes {
     
     public static final String ID = "id";
     public static final String TYPE = "type";
+    public static final String DATA = "data";
     
     private TestzeugBeanAttributes() {
     }

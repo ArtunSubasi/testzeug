@@ -9,6 +9,7 @@ public class TestzeugBean {
     
     private final String id;
     private String type;
+    private Object data;
 
     TestzeugBean(String id) {
         this.id = id;
@@ -24,6 +25,14 @@ public class TestzeugBean {
 
     void setType(String type) {
         this.type = type;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
     }
     
 }
